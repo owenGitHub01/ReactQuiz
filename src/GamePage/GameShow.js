@@ -1,4 +1,8 @@
 
+import htmlLogo from "../Images/html-icon.png"
+import cssLogo from "../Images/css-icon.png"
+import jsLogo from "../Images/js-icon.png"
+
 import Footer from "../Footer/Footer"
 import { cssQuestion, htmlQuestion, jsQuestion } from "../Data/Data"
 
@@ -6,6 +10,7 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
 
     // change below to = nothing
     let catagory
+    let displayImg
 
     let currentQuestion
 
@@ -15,12 +20,15 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
     const UpdateQuestion = () => {
         if(chosen.toLowerCase() === 'html'){
             catagory = htmlQuestion
+            displayImg = htmlLogo
         }
         if(chosen.toLowerCase() === 'css'){
             catagory = cssQuestion
+            displayImg = cssLogo
         }
         if(chosen.toLowerCase() === 'javascript'){
             catagory = jsQuestion
+            displayImg = jsLogo
         }
         if(questionNum > 10){
 
@@ -29,9 +37,13 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
             console.log(`inside generating question... ${questionNum}`)
             currentQuestion = catagory[questionNum].question
             return (
-                <div className="text-center pt-8 text-2xl" id="test">
-                    <h1 className="text-center text-2xl">Question: {questionNum}</h1>
-                    <h1>{currentQuestion}</h1>
+                
+                <div className="text-center pt-8 text-2xl pt-8">
+                    <div className="flex items-center justify-center pb-8">
+                        <img alt="" src={displayImg} className="w-16 h-16 rounded-full"></img>
+                    </div>
+                    <h1 className="text-center text-white text-2xl">Question: {questionNum}</h1>
+                    <h1 className="text-white">{currentQuestion}</h1>
                 </div>
                 )
             }}
@@ -59,7 +71,7 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
         let renderOptions = catagory[questionNum].options.map((opt) => {
             return (
                 <div className="pt-4 flex items-center justify-center">
-                    <button key={opt} onClick={() => HandleUserGuess(opt)} className="rounded border-2 border-black w-64 h-12">
+                    <button key={opt} onClick={() => HandleUserGuess(opt)} className="text-white rounded border-2 border-black w-64 h-12 sm:w-72 sm:h-16">
                         {opt}
                     </button>
                 </div>
@@ -131,9 +143,9 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
 
         return (
             <div className="h-screen">
-                <div className="h-5/6 bg-gradient-to-r from-slate-100 to-slate-300">
+                <div className="h-5/6 bg-gradient-to-r from-gray-500 to-slate-400">
                     <div className="text-right pt-6 pr-6">
-                        <button className="rounded border border-black h-8 w-16" onClick={ExitGame}>Exit</button>
+                        <button className="rounded border border-black h-8 w-16 bg-cyan-300" onClick={ExitGame}>Exit</button>
                     </div>
                     <div>
                         <h1>{UpdateQuestion()}</h1>
@@ -141,7 +153,7 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
                     <div>{DisplayOptions()}</div>
                 </div> 
 
-                <div className="h-1/6 bg-gray-300">
+                <div className="bg-black h-1/6">
                     <Footer />
                 </div>
             </div>
