@@ -42,8 +42,8 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
                     <div className="flex items-center justify-center pb-8">
                         <img alt="" src={displayImg} className="w-16 h-16 rounded-full"></img>
                     </div>
-                    <h1 className="text-center text-white text-2xl">Question: {questionNum}</h1>
-                    <h1 className="text-white">{currentQuestion}</h1>
+                    <h1 className="text-center text-2xl">Question: {questionNum}</h1>
+                    <h1>{currentQuestion}</h1>
                 </div>
                 )
             }}
@@ -71,7 +71,7 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
         let renderOptions = catagory[questionNum].options.map((opt) => {
             return (
                 <div className="pt-4 flex items-center justify-center">
-                    <button key={opt} onClick={() => HandleUserGuess(opt)} className="text-white rounded border-2 border-black w-64 h-12 sm:w-72 sm:h-16">
+                    <button key={opt} onClick={() => HandleUserGuess(opt)} className="rounded border-2 border-black w-64 h-12 sm:w-72 sm:h-16">
                         {opt}
                     </button>
                 </div>
@@ -97,12 +97,12 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
             return (
                 <div
                 className="flex items-center justify-center pt-4">
-                    <div className="border-2 border-black rounded w-4/5 text-center pb-2">
+                    <div className="border-2 border-black rounded w-4/5 text-center pb-2 sm:w-2/5 shadow-lg shadow-red-900">
                         <h1 className="text-2xl pt-6 pb-6 bold">End of the {chosen} Quiz!</h1>
                         <h1 className="text-2xl">Score</h1>
                         <h1 className="text-2xl">{userScore} Out of {catagory.length - 1}</h1>
                         <div className="pb-2">{renderIncorrect}</div>
-                        <button onClick={ExitGame} className="rounded border-black border-2 w-2/5 bg-gradient-to-r from-cyan-500 to-cyan-300">Home</button>
+                        <button onClick={ExitGame} className="sm:rounded sm:border-black sm:border-2 sm:w-36 rounded border-black border-2 w-2/5 bg-gradient-to-r from-cyan-500 to-cyan-300">Home</button>
                     </div>
                 </div>
             )
@@ -118,7 +118,7 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
             return (
                 <div
                 className="flex items-center justify-center pt-8">
-                    <div className="border-2 border-black rounded w-4/5 text-center pb-8 sm:w-2/5">
+                    <div className="border-2 border-black rounded w-4/5 text-center pb-8 sm:w-2/5 shadow-lg shadow-red-900">
                         <h1 className="text-2xl pt-6 pb-6 bold">End of the {chosen} Quiz!</h1>
                         <h1 className="text-2xl">Score</h1>
                         <h1 className="text-2xl">{userScore} Out of {catagory.length - 1}</h1>
@@ -132,20 +132,21 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
             return (
                 <div
                 className="flex items-center justify-center pt-12">
-                    <div className="border-2 border-black rounded w-4/5 text-center">
+                    <div className="border-2 border-black rounded w-4/5 text-center shadow-lg shadow-red-900">
                         <h1 className="text-2xl pt-6 pb-6 bold">End of the {chosen} Quiz!</h1>
                         <h1 className="text-2xl">Score</h1>
                         <h1 className="text-2xl">{userScore} Out of {catagory.length - 1}</h1>
+                        <button onClick={ExitGame} className="sm:rounded sm:border-black sm:border-2 sm:w-36 w-2/5 bg-gradient-to-r from-cyan-500 to-cyan-300">Home</button>
                     </div>
                 </div>
-            )}
+        )}
     }
 
         return (
             <div className="h-screen">
-                <div className="h-5/6 bg-gradient-to-r from-gray-500 to-slate-400">
+                <div className="h-5/6 bg-gradient-to-l from-indigo-200 via-red-200 to-yellow-100">
                     <div className="text-right pt-6 pr-6">
-                        <button className="rounded border border-black h-8 w-16 bg-cyan-300" onClick={ExitGame}>Exit</button>
+                        <button className="rounded border border-black h-8 w-16 bg-cyan-400" onClick={ExitGame}>Exit</button>
                     </div>
                     <div>
                         <h1>{UpdateQuestion()}</h1>
@@ -153,7 +154,7 @@ function GameShow(chosen, setShowHome, questionNum, setQuestionNum, userScore, s
                     <div>{DisplayOptions()}</div>
                 </div> 
 
-                <div className="bg-black h-1/6">
+                <div className="bg-gray-800 h-1/6">
                     <Footer />
                 </div>
             </div>

@@ -14,10 +14,11 @@ function App(){
     
     const handleUserChoice = (quizSelector) => {
         setQuiz(quizSelector)
+        setQuestionNum(1)
         return quizSelector
     }
     if(showHome){
-        return HomeShow(setShowHome, handleUserChoice)
+        return HomeShow(setShowHome, handleUserChoice, setQuestionNum)
     }
     else {
         return GameShow(quiz, setShowHome, questionNum, setQuestionNum, userScore, setUserScore, incorrectAnswers, setIncorrectAnswers)

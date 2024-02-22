@@ -5,11 +5,11 @@ import htmlLogo from "../Images/html-icon.png"
 import cssLogo from "../Images/css-icon.png"
 import jsLogo from "../Images/js-icon.png"
 
-function HomeShow(game, UserClick){
+function HomeShow(game, UserClick, setQuestionNum){
 
     return (
         <div className="h-screen ">
-            <div className="text-center pt-24 sm:flex sm:pt-24 h-5/6 bg-gradient-to-t from-gray-200 via-gray-400 to-gray-600">
+            <div className="text-center pt-24 sm:flex sm:pt-24 h-5/6 bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100">
                 <div className="sm:w-1/2">
                     <div className="text-center text-2xl pt-16">
                         <h1 className="flex items-center justify-center sm:text-4xl">Welcome to the <h1 className="underline pl-2"> Frontend Quiz</h1></h1>
@@ -28,7 +28,7 @@ function HomeShow(game, UserClick){
                     </div>
                 </div>
             </div>
-            <div className="bg-black h-1/6">
+            <div className="bg-gray-800 to-black h-1/6">
                 <Footer />
             </div>
         </div>
