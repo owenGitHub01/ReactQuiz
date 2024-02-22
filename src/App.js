@@ -15,6 +15,8 @@ function App(){
     const handleUserChoice = (quizSelector) => {
         setQuiz(quizSelector)
         setQuestionNum(1)
+        setUserScore(0)
+        setIncorrectAnswers([])
         return quizSelector
     }
     if(showHome){
